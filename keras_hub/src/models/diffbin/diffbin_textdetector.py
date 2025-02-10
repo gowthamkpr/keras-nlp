@@ -11,7 +11,7 @@ from keras_hub.src.models.image_text_detector import ImageTextDetector
 
 
 @keras_hub_export("keras_hub.models.DiffBinImageTextDetector")
-class DiffBinImageTextDetector(ImageTextDetector):
+class ImageTextDetector(ImageTextDetector):
     """Differentiable Binarization scene text detection task.
 
     `DiffBinImageTextDetector` tasks wrap a `keras_hub.models.DiffBinBackbone`
@@ -117,6 +117,8 @@ class DiffBinImageTextDetector(ImageTextDetector):
             **kwargs,
         )
 
+
+    
 
 def step_function(x, y, k=50.0):
     return 1.0 / (1.0 + keras.ops.exp(-k * (x - y)))
